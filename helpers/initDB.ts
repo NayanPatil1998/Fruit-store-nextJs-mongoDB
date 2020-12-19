@@ -6,7 +6,7 @@ function initDB(){
         console.log("already connected")
         return
     }
-    mongoose.connect("mongodb+srv://admin:19z2jOcSCkAbQQum@cluster0.ouwhf.mongodb.net/myshop?retryWrites=true&w=majority", {
+    mongoose.connect("mongodb://localhost:27017/myshop", {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })

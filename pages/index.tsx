@@ -11,7 +11,7 @@ export interface ProductsProps {
 function Home({ products }: ProductsProps) {
   const productList = products.map((product) => {
     return (
-      <div className="card" key={product.id}>
+      <div className="card" key={product._id}>
         <img
           className="card-img-top"
           src={product.mediaUrl}
@@ -23,9 +23,11 @@ function Home({ products }: ProductsProps) {
           <h5 className="card-title">{product.name}</h5>
           <p className="card-text"> ₹{product.price}</p>
           <p className="card-text">{product.rating} <i className="fas fa-star"></i></p>
+          <Link href={'/product/[id]'} as= {`/product/${product._id}`}>
           <a className="btn btn-primary">
-            Add to Cart
+            View
           </a>
+          </Link>
         </div>
       </div>
     );
@@ -33,6 +35,7 @@ function Home({ products }: ProductsProps) {
 
   return (
     <div>
+      <Corosoul />
       <div className="container" >
       {/* <img className="img-fluid homeImg" height="300px" src="corosoul2.jpg" alt="First slide" /> */}
         <div className="row product-area justify-content-center"><h3>New Products</h3>{productList}</div>
